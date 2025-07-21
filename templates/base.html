@@ -16,8 +16,9 @@
                         <img src="https://raw.githubusercontent.com/luwizghieherald/restaurant-pricelist/main/static/css/logo.png" alt="Restaurant Logo">
                     </div>
                 </li>
-                <li><a href="{{ url_for('index') }}">Malawi's Own Pizza - 0999826229/888826229</a></li>
-                {% if session.get('admin_logged_in') %}
+                <li><a href="{{ url_for('index') }}">"Malawi's Own Pizza" 0999826229 / 0888826229</a></li>
+                {# Show Admin Dashboard and Logout links ONLY if admin is logged in AND not on the home page #}
+                {% if session.get('admin_logged_in') and request.path != url_for('index') %}
                     <li><a href="{{ url_for('admin_dashboard') }}">Admin Dashboard</a></li>
                     <li><a href="{{ url_for('logout') }}">Logout</a></li>
                 {% endif %}
