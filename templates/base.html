@@ -3,24 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}Jungle Pepper - Price List{% endblock %}</title>
+    <title>{% block title %}Restaurant Price List{% endblock %}</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
     <header>
-        <div class="logo-container">
-            <img src="https://raw.githubusercontent.com/luwizghieherald/restaurant-pricelist/main/static/css/logo.png" alt="Restaurant Logo">
-        </div>
-        <h1>Jungle Pepper - Price List</h1>
         <nav>
             <ul>
+                <li class="logo-nav-item">
+                    <div class="logo-container">
+                        {# Replace this src with your actual logo's raw GitHub URL #}
+                        <img src="https://raw.githubusercontent.com/luwizghieherald/restaurant-pricelist/main/static/css/logo.png" alt="Restaurant Logo">
+                    </div>
+                </li>
                 <li><a href="{{ url_for('index') }}">Home</a></li>
                 {% if session.get('admin_logged_in') %}
                     <li><a href="{{ url_for('admin_dashboard') }}">Admin Dashboard</a></li>
                     <li><a href="{{ url_for('logout') }}">Logout</a></li>
-                {% else %}
-                    <li><a href="{{ url_for('login') }}">Admin Login</a></li>
                 {% endif %}
+                {# The "Admin Login" link has been removed from the navigation bar. #}
+                {# Admins will now need to manually navigate to /login or /admin #}
             </ul>
         </nav>
     </header>
