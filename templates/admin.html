@@ -5,6 +5,7 @@
 {% block content %}
     <h2>Jungle Pepper - Admin Dashboard</h2>
     <a href="{{ url_for('add_item') }}" class="button">Add New Item</a>
+    <a href="{{ url_for('change_password') }}" class="button">Change Password</a> {# New link for changing password #}
 
     {% if menu_items %}
         <table class="admin-table">
