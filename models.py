@@ -23,7 +23,9 @@ class AdminUser(db.Model):
         self.password_hash = generate_password_hash(password)
 
     def check_password(self, password):
-        return check_password_hash(password, self.password_hash) # Corrected order for check_password_hash
+        # CORRECTED AGAIN: Hashed password (self.password_hash) is the first argument,
+        # plain password (password) is the second.
+        return check_password_hash(self.password_hash, password)
 
     def __repr__(self):
         return f'<AdminUser {self.username}>'
