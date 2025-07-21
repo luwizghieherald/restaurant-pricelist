@@ -7,7 +7,7 @@ body {
 }
 
 header {
-    background-color: #333;
+    background-color: #075700;
     color: white;
     padding: 0.5rem 0;
     text-align: center;
@@ -53,8 +53,8 @@ nav ul li a {
 
 main {
     padding: 20px;
-    max-width: 1000px;
-    width: 90%;
+    max-width: 600px;
+    width: 90%; /* Added relative width for better responsiveness */
     margin: 20px auto;
     background-color: white;
     border-radius: 8px;
@@ -91,32 +91,16 @@ h2 {
     margin-top: 30px;
 }
 
-/* Style to center the menu heading and description */
-.menu-header-center {
-    text-align: center;
-    margin-bottom: 20px; /* Space below the header block */
-}
-
-.menu-description {
-    font-size: 1.1em;
-    color: #555;
-    margin-top: 5px;
-    margin-bottom: 20px; /* Ensure some space below the description */
-}
-
-
-/* Updated style for category headings */
+/* New style for category headings */
 .menu-category-heading {
-    color: #8B0000;
+    color: #f52222;
     border-bottom: 1px solid #ccc;
     padding-bottom: 5px;
     margin-top: 25px;
     margin-bottom: 15px;
-    font-size: 1.8em;
+    font-size: 1em;
     text-transform: uppercase;
-    font-weight: bold;
 }
-
 
 .menu-list {
     list-style: none;
@@ -124,10 +108,10 @@ h2 {
 }
 
 .menu-list li {
-    background-color: #f0f0f0;
+    background-color: #f0f0f0; /* Changed background color */
     border: 1px solid #ddd;
-    padding: 10px 15px;
-    margin-bottom: 8px;
+    padding: 10px 15px; /* Reduced padding for smaller height */
+    margin-bottom: 8px; /* Reduced margin between items */
     border-radius: 5px;
     display: flex;
     flex-wrap: wrap;
@@ -138,7 +122,7 @@ h2 {
 .menu-list li h3 {
     margin-top: 0;
     margin-bottom: 5px;
-    color: #007bff;
+    color: #00700f;
     flex-basis: 100%;
 }
 
@@ -167,7 +151,6 @@ h2 {
         flex-grow: 1;
     }
 }
-
 
 .flashes {
     list-style: none;
