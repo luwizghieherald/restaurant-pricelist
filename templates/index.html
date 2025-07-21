@@ -6,6 +6,8 @@
     {# The Recent Activity Log section has been removed as per your request. #}
 
     <h2>Our Menu</h2>
+    <p class="menu-description"> Wood fired pizza, cooked right near your table..</p> {# New description line #}
+
     {% if categorized_menu_items %}
         {% for category, items in categorized_menu_items.items() %}
             <h3 class="menu-category-heading">{{ category }}</h3> {# Category heading #}
