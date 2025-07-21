@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+    <h2>{{ title }}</h2>
+    <form method="POST" action="{{ url_for(request.endpoint, item_id=item.id if item else '') }}">
+        <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" value="{{ item.name if item else '' }}" required>
+        </div>
+        <div class="form-group">
+            <label for="description">Description:</label>
+            <textarea id="description" name="description">{{ item.description if item else '' }}</textarea>
+        </div>
+        <div class="form-group">
+            <label for="price">Price (e.g., 1000 for K1,000):</label>
+            <input type="text" id="price" name="price" value="{{ "{:,.0f}".format(item.price) if item else '' }}" required pattern="[0-9,]+" title="Enter numbers only, commas are optional for input.">
+        </div>
+        <div class="form-group">
+            <label for="category">Category (e.g., Pizzas, Burgers, Drinks):</label>
+            <input type="text" id="category" name="category" value="{{ item.category if item else 'Uncategorized' }}">
+        </div>
+        <button type="submit">{{ 'Update' if item else 'Add' }} Item</button>
+        <a href="{{ url_for('admin_dashboard') }}" class="button cancel-button">Cancel</a>
+    </form>
+{% endblock %}

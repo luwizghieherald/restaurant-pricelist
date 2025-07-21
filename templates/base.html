@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Jungle Pepper - Price List{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="https://raw.githubusercontent.com/luwizghieherald/restaurant-pricelist/main/static/css/logo.png" alt="Restaurant Logo">
+        </div>
+        <h1>Jungle Pepper - Price List</h1>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('index') }}">Home</a></li>
+                {% if session.get('admin_logged_in') %}
+                    <li><a href="{{ url_for('admin_dashboard') }}">Admin Dashboard</a></li>
+                    <li><a href="{{ url_for('logout') }}">Logout</a></li>
+                {% else %}
+                    <li><a href="{{ url_for('login') }}">Admin Login</a></li>
+                {% endif %}
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                <ul class="flashes">
+                {% for category, message in messages %}
+                    <li class="{{ category }}">{{ message }}</li>
+                {% endfor %}
+                </ul>
+            {% endif %}
+        {% endwith %}
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer>
+        <p>&copy; {{ now.year }} Restaurant Price List App</p>
+    </footer>
+    <script>
+        // Simple script to dismiss flash messages after a few seconds
+        document.addEventListener('DOMContentLoaded', () => {
+            const flashes = document.querySelector('.flashes');
+            if (flashes) {
+                setTimeout(() => {
+                    flashes.style.opacity = '0';
+                    setTimeout(() => flashes.remove(), 500); // Remove after fade
+                }, 5000); // 5 seconds
+            }
+        });
+    </script>
+</body>
+</html>

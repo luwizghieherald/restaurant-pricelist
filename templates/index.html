@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block title %}Public Price List{% endblock %}
+
+{% block content %}
+    {# The Recent Activity Log section has been removed as per your request. #}
+
+    <h2>Our Menu</h2>
+    {% if categorized_menu_items %}
+        {% for category, items in categorized_menu_items.items() %}
+            <h3 class="menu-category-heading">{{ category }}</h3> {# Category heading #}
+            <ul class="menu-list">
+            {% for item in items %}
+                <li>
+                    <h3>{{ item.name }}</h3>
+                    <p>{{ item.description }}</p>
+                    <p class="price">K{{ "{:,.0f}".format(item.price) }}</p>
+                </li>
+            {% endfor %}
+            </ul>
+        {% endfor %}
+    {% else %}
+        <p>No menu items available yet. Please check back later!</p>
+    {% endif %}
+{% endblock %}
